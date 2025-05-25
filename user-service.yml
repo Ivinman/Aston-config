@@ -42,7 +42,6 @@ resilience4j:
         maxAttempts: 3
         waitDuration: 2s
 
-
 user: 
   event:
     topic:
