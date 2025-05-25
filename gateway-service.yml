@@ -12,9 +12,9 @@ spring:
           filters:
             - StripPrefix=1
             - name: CircuitBreaker
-            - args:
-            - name: userServiceCB
-            - fallbackUri: forward:/fallback/user
+              args:
+               name: userServiceCB
+               fallbackUri: forward:/fallback/user
 
 resilience4j:
   circuitbreaker:
