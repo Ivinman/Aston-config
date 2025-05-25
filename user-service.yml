@@ -22,8 +22,31 @@ spring:
     password: root
   kafka:
     bootstrap-servers: "localhost:9092"
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+
+resilience4j:
+  circuitbreaker:
+    instances:
+      kafkaCircuitBreaker:
+        slidingWindowSize: 10
+        minimumNumberOfCalls: 5
+        failureRateThreshold: 30
+        waitDurationInOpenState: 10s
+        permittedNumberOfCallsInHalfOpenState: 3
+        automaticTransitionFromOpenToHalfOpenEnabled: true
+  retry:
+    instances:
+      kafkaRetry:
+        maxAttempts: 3
+        waitDuration: 2s
+
 
 user: 
   event:
     topic:
       name: userEventTopic
+kafka:
+ topic:
+   fallback: userFallbackTopic
