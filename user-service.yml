@@ -15,11 +15,11 @@ spring:
     properties:
       hibernate:
         format_sql: true
-#  datasource:
-#    driverClassName: org.postgresql.Driver
-#    url: jdbc:postgresql://localhost:5432/Prod
-#    username: postgres
-#    password: root
+ datasource:
+   driverClassName: org.postgresql.Driver
+   url: jdbc:postgresql://localhost:5432/Prod
+   username: postgres
+   password: root
   kafka:
     bootstrap-servers: "localhost:9092"
     producer:
