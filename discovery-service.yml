@@ -1,6 +1,6 @@
 eureka:
   instance:
-    hostname: discovery-service
+    hostname: localhost
     lease-renewal-interval-in-seconds: 30
     lease-expiration-duration-in-seconds: 90
   client:
